@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+<meta name="title" content="Todo Vite" />
+<meta name="description" content="San kyi tar bar byar" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io/" />
+<meta property="og:title" content="Todo Vite" />
+<meta property="og:description" content="San kyi tar bar byar" />
+<meta property="og:image" content="https://online.keele.ac.uk/wp-content/uploads/2023/11/02_Computer-systems.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io/" />
+<meta property="twitter:title" content="Todo Vite" />
+<meta property="twitter:description" content="San kyi tar bar byar" />
+<meta property="twitter:image" content="https://online.keele.ac.uk/wp-content/uploads/2023/11/02_Computer-systems.jpg" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
+    <!-- <link rel="stylesheet" href="./src/style.css"> -->
+</head>
+
+<body class="bg-stone-200">
+    <main>
+        <section class="mx-auto bg-white rounded-md min-h-[500px] max-w-[350px] mt-10 p-6">
+            <header class="font-serif fontဎ-bold text-2xl mb-3">Lists Builder</header>
+            <section>
+                <!-- input box -->
+                <div class="mb-5 border border-stone-900  flex">
+                    <input id="taskInput" class="font-mono flex-grow border border-stone-900 ps-3" type="text">
+                    <button id="addTaskBtn" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-9 bg-stone-900">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- done section -->
+                <div class="mt-4 flex justify-between items-center mb-5">
+                    <p class="font-bold font-serif text-lg">Your List</p>
+                    <p class="border border-stone-700 bg-stone-400 rounded-2xl px-2 py-1">Done
+                        (<span id="doneTaskTotal">0</span>/<span id="taskTotal">0</span>)</p>
+                </div>
+
+                <section>
+
+                    <div id="listGroup" class="listGroup">
+                        <div class="last:block hidden ">
+                            <img class="size-52 m-auto" src="../Photo/list.svg" alt="">
+                            <p class="text-center font-mono">There is no lists to do </p>
+                        </div>
+                    </div>
+
+                    <!-- list section -->
+                </section>
+            </section>
+        </section>
+
+    </main>
+
+    <section class="flex">
+        <button id="delectAll" class="block flex gap-1 border bg-stone-400 px-3 py-1 rounded-md mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+            Delect All</button>
+
+        <button id="doneAll" class="block flex gap-1 border bg-stone-400 px-3 py-1 rounded-md mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+            Done All</button>
+    </section>
+
+    <!-- <ul id="fruits">
+        <li>Hello</li>
+        <li>World</li>
+        <li>banana</li>
+        <li>something</li>
+    </ul> -->
+
+    <template id="listTemplate">
+        <div class="list">
+            <div class="animate__zoomIn animate__animated flex justify-between bg-stone-300 border rounded-lg border-stone-900 p-2 mt-3 items-center">
+                <div class="first flex gap-3">
+                    <input type="checkbox" class = "list-done-check accent-stone-950" name="" id="">
+                    <p class="font-mono text-[18px] list-task">${currentTask}</p>
+                </div>
+                <div>
+                    <!-- edit button -->
+                    <button class="active:scale-90 active:bg-stone-400 duration-200 disabled:opacity-20 list-edit-btn border border-stone-900 rounded-md p-1"><svg
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="size-6 pointer-events-none">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                        </svg>
+                    </button>
+                    <!-- delete button -->
+                    <button class="active:scale-90 active:bg-stone-400 duration-200 list-del-btn border border-stone-900 rounded-md p-1"><svg
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="size-6 pointer-events-none">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
